@@ -45,11 +45,18 @@ Aggiungere una select accanto al bottone di generazione, che fornisca una scelta
 - difficoltà 3 ⇒ 49 caselle, con un numero compreso tra 1 e 49, divise in 7 caselle per 7 righe;
 */
 
+//* Genero una funzione per contare i punti
+let points = 0;
+
+const sumOnClick = () => {
+    points += 1
+}
 
 //* Genero la  funzione play
 const play = () => {
     // Svuoto la griglia
     square.innerHTML = '';
+    pointBlackboard.classList.remove('d-none');
 
     // Gestisco la select
     const option = document.getElementById('select').value;
@@ -87,8 +94,9 @@ const play = () => {
             if(this.classList.contains('clicked')) return
             this.classList.add('clicked');
             console.log(this.innerText);
+            sumOnClick();
+            pointBlackboard.innerText = points;
         })
-
         square.append(cell)
     }
 } 
@@ -98,8 +106,9 @@ const play = () => {
 const square = document.getElementById('square');
 const btnShow = document.getElementById('show');
 const select = document.getElementById('option');
+const pointBlackboard = document.getElementById('point-counter');
+
 
 // Premendo il bottone faccio girare il programma
 btnShow.addEventListener('click', play);
-
 

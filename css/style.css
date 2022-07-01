@@ -35,3 +35,17 @@ main {
 .cell.clicked {
     background-color: lightblue;
 }
+
+/* POINT COUNTER */
+
+#point-counter {
+    width: 300px;
+    height: 100px;
+    margin: 10px auto;
+    border: 1px solid black;
+    border-radius: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+}
