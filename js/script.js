@@ -66,6 +66,7 @@ const play = () => {
     // Svuoto la griglia
     square.innerHTML = '';
     pointBlackboard.classList.remove('d-none');
+    pointBlackboard.innerText = '';
 
     // Gestisco la select
     const option = document.getElementById('select').value;
@@ -114,16 +115,15 @@ const play = () => {
             if(bombs.includes(parseInt(this.innerText))){
                 this.classList.add('bg-danger')
                 pointBlackboard.innerText = 'Hai perso';
+                points = 0;
                 return
             }
-
-            console.log(this.innerText);
-            sumOnClick();
-            pointBlackboard.innerText = points;
-
             if(parseInt(points) === parseInt(totalCells) - parseInt(16)){
                 pointBlackboard.innerText = 'Hai vinto';
             }
+            console.log(this.innerText);
+            sumOnClick();
+            pointBlackboard.innerText = points;
         })
         square.append(cell)
     }
