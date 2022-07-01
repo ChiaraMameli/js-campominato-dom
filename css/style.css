@@ -1,0 +1,37 @@
+/* HEADER */
+header {
+    min-height: 80px;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#show {
+    height: fit-content;
+}
+
+/* MAIN */
+main {
+    background-color: #ca9cf6;
+    min-height: calc(100vh - 80px);
+    padding: 50px;
+}
+
+#square {
+    height: 600px;
+    width: 600px;
+    margin: 0 auto;
+}
+
+.cell {
+    background-color: #C1C3C9;
+    border: 1px solid #ADAFB4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cell.clicked {
+    background-color: lightblue;
+}
