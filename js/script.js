@@ -45,6 +45,16 @@ Aggiungere una select accanto al bottone di generazione, che fornisca una scelta
 - difficoltà 3 ⇒ 49 caselle, con un numero compreso tra 1 e 49, divise in 7 caselle per 7 righe;
 */
 
+//Genero 16 numeri casuali e tutti diversi
+const bombs = [];
+const get16RandomNumbers = totalCells => {
+    while(bombs.length < 16){
+        const randomNumber = Math.floor(Math.random() * totalCells) + 1;
+        if(bombs.indexOf(randomNumber) === -1) bombs.push(randomNumber);
+    }
+    console.log(bombs);
+    }
+
 //* Genero una funzione per contare i punti
 let points = 0;
 
