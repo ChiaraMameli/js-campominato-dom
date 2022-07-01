@@ -49,7 +49,7 @@ Aggiungere una select accanto al bottone di generazione, che fornisca una scelta
 
 //Genero 16 numeri casuali e tutti diversi
 const get16RandomNumbers = (totalCells, array) => {
-    while(array.length < 16){
+    while(array.length + 1 <= 16){
         const randomNumber = Math.floor(Math.random() * totalCells) + 1;
         if(array.indexOf(randomNumber) === -1) array.push(randomNumber);
     }}
@@ -69,8 +69,8 @@ const play = () => {
 
     // Gestisco la select
     const option = document.getElementById('select').value;
-    let rows = 10;
-    let columns = 10;
+     let rows = 10;
+     let columns = 10;
 
     if(option === 'medium') {
         rows = 9;
@@ -81,6 +81,7 @@ const play = () => {
     }
 
     const totalCells = (rows * columns)
+    console.log(totalCells)
 
     // Creo le mie celle
     const createCells = (cellNumber) => {
@@ -119,6 +120,10 @@ const play = () => {
             console.log(this.innerText);
             sumOnClick();
             pointBlackboard.innerText = points;
+
+            if(parseInt(points) === parseInt(totalCells) - parseInt(16)){
+                pointBlackboard.innerText = 'Hai vinto';
+            }
         })
         square.append(cell)
     }
