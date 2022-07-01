@@ -1,6 +1,6 @@
 /* HEADER */
 header {
-    min-height: 80px;
+    min-height: 10vh;
     padding: 0 20px;
     display: flex;
     justify-content: space-between;
@@ -14,13 +14,13 @@ header {
 /* MAIN */
 main {
     background-color: #ca9cf6;
-    min-height: calc(100vh - 80px);
+    min-height: 90vh;
     padding: 50px;
 }
 
 #square {
-    height: 600px;
-    width: 600px;
+    height: 70vh;
+    width: 70vh;
     margin: 0 auto;
 }
 
@@ -40,7 +40,7 @@ main {
 
 #point-counter {
     width: 300px;
-    height: 100px;
+    height: 10vh;
     margin: 10px auto;
     border: 1px solid black;
     border-radius: 2rem;

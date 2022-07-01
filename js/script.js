@@ -30,7 +30,9 @@ controllando se il numero di cella è presente nell'array di bombe. Se si, la ce
 dobbiamo incrementare il punteggio.
 
 # MILESTONE 4
-Quando l'utente clicca su una cella, e questa non è una bomba, dobbiamo controllare se il punteggio incrementato ha raggiunto il punteggio massimo perchè in quel caso la partita termina. Raccogliamo quindi il messaggio è scriviamo un messaggio appropriato.
+Quando l'utente clicca su una cella, e questa non è una bomba, dobbiamo controllare se il punteggio incrementato ha 
+raggiunto il punteggio massimo perchè in quel caso la partita termina. 
+Raccogliamo quindi il messaggio è scriviamo un messaggio appropriato.
 (Ma come stabiliamo quale sia il punteggio massimo?)
 
 # MILESTONE 5
@@ -46,14 +48,11 @@ Aggiungere una select accanto al bottone di generazione, che fornisca una scelta
 */
 
 //Genero 16 numeri casuali e tutti diversi
-const bombs = [];
-const get16RandomNumbers = totalCells => {
-    while(bombs.length < 16){
+const get16RandomNumbers = (totalCells, array) => {
+    while(array.length < 16){
         const randomNumber = Math.floor(Math.random() * totalCells) + 1;
-        if(bombs.indexOf(randomNumber) === -1) bombs.push(randomNumber);
-    }
-    console.log(bombs);
-    }
+        if(array.indexOf(randomNumber) === -1) array.push(randomNumber);
+    }}
 
 //* Genero una funzione per contare i punti
 let points = 0;
@@ -95,14 +94,28 @@ const play = () => {
         return cell
     }
     
+    const bombs = [];
+    get16RandomNumbers(totalCells, bombs)
+    console.log(bombs)
+
+
     // Inserisco le celle nella griglia
     for(i = 1; i <= (totalCells); i++) {
         const cell = createCells(i);
+
 
         // Al click la cella cambia colore e il suo valore viene letto in console
         cell.addEventListener('click', function(){
             if(this.classList.contains('clicked')) return
             this.classList.add('clicked');
+
+            // Effetto bombe
+            if(bombs.includes(parseInt(this.innerText))){
+                this.classList.add('bg-danger')
+                pointBlackboard.innerText = 'Hai perso';
+                return
+            }
+
             console.log(this.innerText);
             sumOnClick();
             pointBlackboard.innerText = points;
